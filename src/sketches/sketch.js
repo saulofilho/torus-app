@@ -4,7 +4,7 @@ import Sketch from "react-p5";
 let teste1;
 let teste2;
 
-export default class SketchTorus extends Component {
+export default class SketchTorusHero extends Component {
 
   setup = (p5, canvasParentRef) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL).parent(canvasParentRef);
