@@ -93,8 +93,6 @@ header .container {
     flex-flow: column;
   }
 }
-
-
 .canvas-sketch {
   overflow: hidden;
   position: relative;
@@ -108,7 +106,6 @@ header .container {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
 .about {
   height: 100vh;
   display: flex;
@@ -144,7 +141,6 @@ header .container {
   font-style: italic;
   color: rgb(123, 255, 0);
 }
-
 footer {
   height: 250px;
   display: flex;
@@ -154,8 +150,7 @@ footer {
 footer p {
   font-style: italic;
 }
-
-.inputs {
+.customInputs {
   -webkit-appearance: none;
   width: 100%;
   height: 2px;
@@ -164,34 +159,36 @@ footer p {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  cursor: pointer;
 }
-
-.inputs:hover {
+.customInputs:hover {
   opacity: 1;
 }
-
-.inputs::-webkit-slider-thumb {
+.customInputs::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 3px;
+  width: 15px;
   height: 15px;
+  border-radius: 50%;
   background: rgb(123, 255, 0);
   cursor: pointer;
 }
-
-.inputs::-moz-range-thumb {
+.customInputs::-webkit-slider-thumb:hover {
+  width: 18px;
+  height: 18px;
+}
+.customInputs::-moz-range-thumb {
   width: 25px;
   height: 25px;
   background: rgb(123, 255, 0);
   cursor: pointer;
 }
-
 strong {
   font-weight: bolder;
 }
 .swiper-slide img {
   width: 100%;
-  height: 100vh;
+  height: auto;
   object-fit: contain;
 }
 .swiper-container {
@@ -200,16 +197,16 @@ strong {
   margin-left: auto;
   margin-right: auto;
 }
-
 .examples {
-  padding-top: 80px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-#myInputs p {
+#inputsVariables p {
   padding-top: 30px;
   font-size: 10px;
 }
-
 .swiper-button-prev, 
 .swiper-button-next {
   color: rgb(123, 255, 0) !important;
@@ -219,4 +216,18 @@ strong {
 }
 .swiper-pagination-bullet {
   background: rgb(123, 255, 0) !important;
+}
+#btnSave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+#btnSave button {
+  background: transparent;
+  border: 1px solid rgb(123, 255, 0);
+  border-radius: 20px;
+  color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
 }

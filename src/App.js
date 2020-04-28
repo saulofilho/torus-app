@@ -65,9 +65,8 @@ function App() {
           </div>
         </section>
         <section className="canvas-sketch">
-          <span id="but">
-            <div id="myInputs" className="container"></div>
-          </span>
+          <div id="inputsVariables" className="container"></div>
+          <div id="btnSave" className="container"></div>
           <SketchTorus />
         </section>
         <h2 className="container examples">Examples</h2>
