@@ -2,66 +2,83 @@ import React, { Component } from "react";
 import Sketch from "react-p5";
 
 let sliderRadius;
+let sliderRate;
 let sliderTubeRadius;
 let sliderRotateX;
 let sliderRotateY;
 let sliderRotateZ;
-let sliderRate;
+let sliderDetailX;
+let sliderDetailY;
 
-export default class SketchTorus extends Component {
+export default class SketchEllipsoid extends Component {
 
   setup = (p5, canvasParentRef) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL).parent(canvasParentRef);
-    p5.background(0);
+    // p5.background(0);
   
     // frame rate
     let textRate = p5.createP('Frame Rate');
-    textRate.parent('myInputs');
-    sliderRate = p5.createSlider(1, 200, 10, 1);
-    sliderRate.parent('myInputs');
-    sliderRate.class('inputs');
+    textRate.parent('inputsVariables');
+    sliderRate = p5.createSlider(1, 200, p5.random(1, 200), 1);
+    sliderRate.parent('inputsVariables');
+    sliderRate.class('customInputs');
   
     // radius
     let textRadius = p5.createP('Radius');
-    textRadius.parent('myInputs');
-    sliderRadius = p5.createSlider(0, 1000, 100, 0.0001);
-    sliderRadius.parent('myInputs');
-    sliderRadius.class('inputs');
+    textRadius.parent('inputsVariables');
+    sliderRadius = p5.createSlider(0, 1000, p5.random(0, 1000), 0.0001);
+    sliderRadius.parent('inputsVariables');
+    sliderRadius.class('customInputs');
   
     // tube radius
     let textTubeRadius = p5.createP('Tube Radius');
-    textTubeRadius.parent('myInputs');
-    sliderTubeRadius = p5.createSlider(0.01, 100, 1, 0.01);
-    sliderTubeRadius.parent('myInputs');
-    sliderTubeRadius.class('inputs');
+    textTubeRadius.parent('inputsVariables');
+    sliderTubeRadius = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.01);
+    sliderTubeRadius.parent('inputsVariables');
+    sliderTubeRadius.class('customInputs');
   
     // rotate x
     let textRotateX  = p5.createP('Rotate X');
-    textRotateX.parent('myInputs');
-    sliderRotateX = p5.createSlider(0.01, 1, 0.1, 0.001);
-    sliderRotateX.parent('myInputs');
-    sliderRotateX.class('inputs');
+    textRotateX.parent('inputsVariables');
+    sliderRotateX = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
+    sliderRotateX.parent('inputsVariables');
+    sliderRotateX.class('customInputs');
   
     // rotate y
     let textRotateY = p5.createP('Rotate Y');
-    textRotateY.parent('myInputs');
-    sliderRotateY = p5.createSlider(0.01, 1, 0.1, 0.001);
-    sliderRotateY.parent('myInputs');
-    sliderRotateY.class('inputs');
+    textRotateY.parent('inputsVariables');
+    sliderRotateY = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
+    sliderRotateY.parent('inputsVariables');
+    sliderRotateY.class('customInputs');
   
     // rotate z
     let textRotateZ = p5.createP('Rotate Z');
-    textRotateZ.parent('myInputs');
-    sliderRotateZ = p5.createSlider(0.01, 1, 0.1, 0.001);
-    sliderRotateZ.parent('myInputs');
-    sliderRotateZ.class('inputs');
+    textRotateZ.parent('inputsVariables');
+    sliderRotateZ = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
+    sliderRotateZ.parent('inputsVariables');
+    sliderRotateZ.class('customInputs');
+
+    // detail x
+    let textDetailX = p5.createP('Detail X');
+    textDetailX.parent('inputsVariables');
+    sliderDetailX = p5.createSlider(3, 24, p5.random(3, 24));
+    sliderDetailX.parent('inputsVariables');
+    sliderDetailX.class('customInputs');
+
+    // detail Y
+    let textDetailY = p5.createP('Detail Y');
+    textDetailY.parent('inputsVariables');
+    sliderDetailY = p5.createSlider(3, 16, p5.random(3, 16));
+    sliderDetailY.parent('inputsVariables');
+    sliderDetailY.class('customInputs');
 
     function saveImg() {
       p5.save('TORUS.png');
     }
 
-    let saveButton = p5.createButton('save image');
-    saveButton.parent('but');
+    // button
+    let saveButton = p5.createButton('save png');
+    saveButton.parent('btnSave');
     saveButton.mousePressed(saveImg);
   };
 
@@ -74,6 +91,8 @@ export default class SketchTorus extends Component {
     let rotX = sliderRotateX.value();
     let rotY = sliderRotateY.value();
     let rotZ = sliderRotateZ.value();
+    let detailX = sliderDetailX.value();
+    let detailY = sliderDetailY.value();
   
     p5.normalMaterial();
     p5.translate(0, 0, 500);
@@ -81,11 +100,12 @@ export default class SketchTorus extends Component {
     p5.rotateX(p5.frameCount * rotX);
     p5.rotateY(p5.frameCount * rotY);
     p5.rotateZ(p5.frameCount * rotZ);
-    p5.torus(radius, tubeRadius);
+    p5.rotateZ(p5.frameCount * rotZ);
+    p5.ellipsoid(30, 40, 40, detailX, detailY);
     p5.pop();
   
       if (p5.mouseIsPressed) {
-        p5.background(0);
+        p5.clear();
       }
   };
 
