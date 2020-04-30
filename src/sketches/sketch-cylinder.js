@@ -23,17 +23,17 @@ export default class SketchCylinder extends Component {
     sliderRate.parent('inputsVariables');
     sliderRate.class('customInputs');
   
-    // radius
-    let textRadius = p5.createP('Radius');
+    // sizeX
+    let textRadius = p5.createP('Size X');
     textRadius.parent('inputsVariables');
-    sliderRadius = p5.createSlider(0, 1000, p5.random(0, 1000), 0.0001);
+    sliderRadius = p5.createSlider(1, 200, p5.random(1, 200), 0.0001);
     sliderRadius.parent('inputsVariables');
     sliderRadius.class('customInputs');
   
-    // tube radius
-    let textTubeRadius = p5.createP('Tube Radius');
+    // tube sizeY
+    let textTubeRadius = p5.createP('Size Y');
     textTubeRadius.parent('inputsVariables');
-    sliderTubeRadius = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.01);
+    sliderTubeRadius = p5.createSlider(0.01, 1000, p5.random(0.01, 1000), 0.01);
     sliderTubeRadius.parent('inputsVariables');
     sliderTubeRadius.class('customInputs');
   
@@ -86,8 +86,8 @@ export default class SketchCylinder extends Component {
   draw = p5 => {
     let frameR = sliderRate.value();
     p5.frameRate(frameR);
-    let radius = sliderRadius.value();
-    let tubeRadius = sliderTubeRadius.value();
+    let sizeX = sliderRadius.value();
+    let sizeY = sliderTubeRadius.value();
     let rotX = sliderRotateX.value();
     let rotY = sliderRotateY.value();
     let rotZ = sliderRotateZ.value();
@@ -101,7 +101,7 @@ export default class SketchCylinder extends Component {
     p5.rotateY(p5.frameCount * rotY);
     p5.rotateZ(p5.frameCount * rotZ);
     p5.rotateZ(p5.frameCount * rotZ);
-    p5.cylinder(20, 50, detailX, detailY);
+    p5.cylinder(sizeX, sizeY, detailX, detailY);
     p5.pop();
   
       if (p5.mouseIsPressed) {

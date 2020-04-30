@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import Sketch from "react-p5";
 
-let sliderRadius;
 let sliderRate;
-let sliderTubeRadius;
 let sliderRotateX;
 let sliderRotateY;
 let sliderRotateZ;
-let sliderDetailX;
-let sliderDetailY;
+let sliderSize;
 
 export default class SketchBox extends Component {
 
@@ -22,21 +19,7 @@ export default class SketchBox extends Component {
     sliderRate = p5.createSlider(1, 200, p5.random(1, 200), 1);
     sliderRate.parent('inputsVariables');
     sliderRate.class('customInputs');
-  
-    // radius
-    let textRadius = p5.createP('Radius');
-    textRadius.parent('inputsVariables');
-    sliderRadius = p5.createSlider(0, 1000, p5.random(0, 1000), 0.0001);
-    sliderRadius.parent('inputsVariables');
-    sliderRadius.class('customInputs');
-  
-    // tube radius
-    let textTubeRadius = p5.createP('Tube Radius');
-    textTubeRadius.parent('inputsVariables');
-    sliderTubeRadius = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.01);
-    sliderTubeRadius.parent('inputsVariables');
-    sliderTubeRadius.class('customInputs');
-  
+    
     // rotate x
     let textRotateX  = p5.createP('Rotate X');
     textRotateX.parent('inputsVariables');
@@ -58,19 +41,12 @@ export default class SketchBox extends Component {
     sliderRotateZ.parent('inputsVariables');
     sliderRotateZ.class('customInputs');
 
-    // detail x
-    let textDetailX = p5.createP('Detail X');
-    textDetailX.parent('inputsVariables');
-    sliderDetailX = p5.createSlider(3, 24, p5.random(3, 24));
-    sliderDetailX.parent('inputsVariables');
-    sliderDetailX.class('customInputs');
-
-    // detail Y
-    let textDetailY = p5.createP('Detail Y');
-    textDetailY.parent('inputsVariables');
-    sliderDetailY = p5.createSlider(3, 16, p5.random(3, 16));
-    sliderDetailY.parent('inputsVariables');
-    sliderDetailY.class('customInputs');
+    // size
+    let textSize = p5.createP('Size');
+    textSize.parent('inputsVariables');
+    sliderSize = p5.createSlider(2, 300, p5.random(2, 300), 0.0001);
+    sliderSize.parent('inputsVariables');
+    sliderSize.class('customInputs');
 
     function saveImg() {
       p5.save('TORUS.png');
@@ -86,13 +62,11 @@ export default class SketchBox extends Component {
   draw = p5 => {
     let frameR = sliderRate.value();
     p5.frameRate(frameR);
-    let radius = sliderRadius.value();
-    let tubeRadius = sliderTubeRadius.value();
     let rotX = sliderRotateX.value();
     let rotY = sliderRotateY.value();
     let rotZ = sliderRotateZ.value();
-    let detailX = sliderDetailX.value();
-    let detailY = sliderDetailY.value();
+    let size = sliderSize.value();
+    console.log(size)
   
     p5.normalMaterial();
     p5.translate(0, 0, 500);
@@ -101,7 +75,7 @@ export default class SketchBox extends Component {
     p5.rotateY(p5.frameCount * rotY);
     p5.rotateZ(p5.frameCount * rotZ);
     p5.rotateZ(p5.frameCount * rotZ);
-    p5.box(50, detailX, detailY);
+    p5.box(size);
     p5.pop();
   
       if (p5.mouseIsPressed) {

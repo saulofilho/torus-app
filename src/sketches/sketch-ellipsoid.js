@@ -3,6 +3,7 @@ import Sketch from "react-p5";
 
 let sliderRadius;
 let sliderRate;
+let sliderSizeZ;
 let sliderTubeRadius;
 let sliderRotateX;
 let sliderRotateY;
@@ -23,19 +24,26 @@ export default class SketchEllipsoid extends Component {
     sliderRate.parent('inputsVariables');
     sliderRate.class('customInputs');
   
-    // radius
-    let textRadius = p5.createP('Radius');
+    // size x
+    let textRadius = p5.createP('Size X');
     textRadius.parent('inputsVariables');
-    sliderRadius = p5.createSlider(0, 1000, p5.random(0, 1000), 0.0001);
+    sliderRadius = p5.createSlider(1, 333, p5.random(1, 333), 0.0001);
     sliderRadius.parent('inputsVariables');
     sliderRadius.class('customInputs');
   
-    // tube radius
-    let textTubeRadius = p5.createP('Tube Radius');
+    // size y
+    let textTubeRadius = p5.createP('Size Y');
     textTubeRadius.parent('inputsVariables');
-    sliderTubeRadius = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.01);
+    sliderTubeRadius = p5.createSlider(1, 333, p5.random(1, 333), 0.01);
     sliderTubeRadius.parent('inputsVariables');
     sliderTubeRadius.class('customInputs');
+
+    // size z
+    let textSizeZ = p5.createP('Size Z');
+    textSizeZ.parent('inputsVariables');
+    sliderSizeZ = p5.createSlider(1, 333, p5.random(1, 333), 0.01);
+    sliderSizeZ.parent('inputsVariables');
+    sliderSizeZ.class('customInputs');
   
     // rotate x
     let textRotateX  = p5.createP('Rotate X');
@@ -86,13 +94,17 @@ export default class SketchEllipsoid extends Component {
   draw = p5 => {
     let frameR = sliderRate.value();
     p5.frameRate(frameR);
-    let radius = sliderRadius.value();
-    let tubeRadius = sliderTubeRadius.value();
+    let sizeX = sliderRadius.value();
+    let sizeY = sliderTubeRadius.value();
+    let sizeZ = sliderSizeZ.value();
     let rotX = sliderRotateX.value();
     let rotY = sliderRotateY.value();
     let rotZ = sliderRotateZ.value();
     let detailX = sliderDetailX.value();
     let detailY = sliderDetailY.value();
+    console.log("x", sizeX);
+    console.log("y", sizeY);
+    console.log("z", sizeZ);
   
     p5.normalMaterial();
     p5.translate(0, 0, 500);
@@ -101,7 +113,7 @@ export default class SketchEllipsoid extends Component {
     p5.rotateY(p5.frameCount * rotY);
     p5.rotateZ(p5.frameCount * rotZ);
     p5.rotateZ(p5.frameCount * rotZ);
-    p5.ellipsoid(30, 40, 40, detailX, detailY);
+    p5.ellipsoid(sizeX, sizeY, sizeZ, detailX, detailY);
     p5.pop();
   
       if (p5.mouseIsPressed) {

@@ -2,7 +2,7 @@ import React from "react";
 import SketchTorusHero from '../sketches/sketch'
 import SketchEllipsoid from '../sketches/sketch-ellipsoid'
 import '../App.css';
-import torus from '../images/torus.png';
+import ellipsoid from '../images/ellipsoid.png';
 import torus1 from '../images/1.png';
 import torus2 from '../images/2.png';
 import torus3 from '../images/3.png';
@@ -34,7 +34,7 @@ function App() {
           <div className="container">
             <div className="row">
               <div className="about-img">
-                <img src={torus} alt="" />
+                <img src={ellipsoid} alt="" />
               </div>
               <div className="about-text">
                 <h2>Ellipsoid</h2>

@@ -1,7 +1,7 @@
 import React from "react";
 import SketchCylinder from '../sketches/sketch-cylinder';
 import '../App.css';
-import torus from '../images/torus.png';
+import cylinder from '../images/cylinder.jpg';
 import torus1 from '../images/1.png';
 import torus2 from '../images/2.png';
 import torus3 from '../images/3.png';
@@ -33,7 +33,7 @@ function App() {
           <div className="container">
             <div className="row">
               <div className="about-img">
-                <img src={torus} alt="" />
+                <img src={cylinder} alt="" />
               </div>
               <div className="about-text">
                 <h2>Cylinder</h2>

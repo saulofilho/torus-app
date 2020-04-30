@@ -1,7 +1,7 @@
 import React from "react";
 import SketchBox from '../sketches/sketch-box';
 import '../App.css';
-import torus from '../images/torus.png';
+import box from '../images/box.png';
 import torus1 from '../images/1.png';
 import torus2 from '../images/2.png';
 import torus3 from '../images/3.png';
@@ -33,7 +33,7 @@ function App() {
           <div className="container">
             <div className="row">
               <div className="about-img">
-                <img src={torus} alt="" />
+                <img src={box} alt="" />
               </div>
               <div className="about-text">
                 <h2>Box</h2>
