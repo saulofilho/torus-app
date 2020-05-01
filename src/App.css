@@ -54,10 +54,11 @@ header .container {
   max-width: 900px;
   margin: 0 auto;
 }
-@media (max-width: 1000px) {
+@media (max-width: 990px) {
   .container {
     max-width: 600px;
     margin: 0 auto;
+    padding: 0 2rem;
   }
 }
 @media (max-width: 600px) {
@@ -92,6 +93,16 @@ h5 {
   line-height: 30px;
   text-align: left;
 }
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2rem;
+    padding: 3rem;
+  }
+  h5 {
+    font-size: 0.8rem;
+  }
+}
+
 .canvas-sketch {
   overflow: hidden;
   position: relative;
@@ -119,6 +130,16 @@ h5 {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+@media (max-width: 700px) {
+  .home {
+    height: auto;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 .about-img {
   width: 100%;

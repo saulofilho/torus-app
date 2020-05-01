@@ -15,7 +15,7 @@ function Home() {
       <main>
         <section className="home">
           <div className="container">
-            <h1>3D Primitives</h1>
+            <h1>3D Primitives Experiment</h1>
             <h5>
               The term geometric primitive, or prim, in computer graphics and
               CAD systems is used in various senses, with the common meaning of
