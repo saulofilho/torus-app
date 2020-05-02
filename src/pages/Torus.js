@@ -1,4 +1,7 @@
 import React from "react";
+import {
+  Link
+} from "react-router-dom";
 import SketchTorus from '../sketches/sketch-torus';
 import '../App.css';
 import torus from '../images/torus.png';
@@ -56,7 +59,7 @@ function App() {
           <div id="btnSave" className="container"></div>
           <SketchTorus />
         </section>
-        <h2 className="container examples">Examples</h2>
+        {/* <h2 className="container examples">Examples</h2>
         <section className="carousel">
           <Swiper {...SwiperHero}>
             <div className="swiper-img">
@@ -69,8 +72,11 @@ function App() {
               <img src={torus3} alt="" />
             </div>
           </Swiper>
-        </section>
+        </section> */}
       </main>
+      <Link to="/">
+          <h1>⟵</h1>
+      </Link>
       <footer>
         <p>satanic & satanist, inc</p>
       </footer>

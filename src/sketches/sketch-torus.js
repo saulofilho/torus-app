@@ -9,6 +9,22 @@ let sliderRotateY;
 let sliderRotateZ;
 let sliderDetailX;
 let sliderDetailY;
+let textDetailY;
+let textDetailYy;
+let textDetailX;
+let textDetailXx;
+let textRotateZ;
+let textRotateZz;
+let textRotateY;
+let textRotateYy;
+let textRotateX;
+let textRotateXx;
+let textRadius;
+let textRadius2;
+let textRate;
+let textRate2;
+let textTubeRadius;
+let textTubeRadius2;
 
 export default class SketchTorus extends Component {
 
@@ -17,69 +33,111 @@ export default class SketchTorus extends Component {
     // p5.background(0);
   
     // frame rate
-    let textRate = p5.createP('Frame Rate');
+    textRate2 = p5.createP('Frame Rate:');
+    textRate = p5.createP('');
+    textRate2.parent('inputsVariables');
     textRate.parent('inputsVariables');
+    textRate2.class('text-input');
+    textRate.class('text-input number');
     sliderRate = p5.createSlider(1, 200, p5.random(1, 200), 1);
     sliderRate.parent('inputsVariables');
     sliderRate.class('customInputs');
   
     // radius
-    let textRadius = p5.createP('Radius');
+    textRadius2 = p5.createP('Radius:');
+    textRadius = p5.createP('');
+    textRadius2.parent('inputsVariables');
     textRadius.parent('inputsVariables');
+    textRadius2.class('text-input');
+    textRadius.class('text-input number');
     sliderRadius = p5.createSlider(0, 1000, p5.random(0, 1000), 0.0001);
     sliderRadius.parent('inputsVariables');
     sliderRadius.class('customInputs');
   
     // tube radius
-    let textTubeRadius = p5.createP('Tube Radius');
+    textTubeRadius2 = p5.createP('Tube Radius:');
+    textTubeRadius = p5.createP('');
+    textTubeRadius2.parent('inputsVariables');
     textTubeRadius.parent('inputsVariables');
+    textTubeRadius2.class('text-input');
+    textTubeRadius.class('text-input number');
     sliderTubeRadius = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.01);
     sliderTubeRadius.parent('inputsVariables');
     sliderTubeRadius.class('customInputs');
   
     // rotate x
-    let textRotateX  = p5.createP('Rotate X');
+    textRotateXx = p5.createP('Rotate X:');
+    textRotateX = p5.createP('');
+    textRotateXx.parent('inputsVariables');
     textRotateX.parent('inputsVariables');
+    textRotateXx.class('text-input');
+    textRotateX.class('text-input number');
     sliderRotateX = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
     sliderRotateX.parent('inputsVariables');
     sliderRotateX.class('customInputs');
   
     // rotate y
-    let textRotateY = p5.createP('Rotate Y');
+    textRotateYy = p5.createP('Rotate Y:');
+    textRotateY = p5.createP('');
+    textRotateYy.parent('inputsVariables');
     textRotateY.parent('inputsVariables');
+    textRotateYy.class('text-input');
+    textRotateY.class('text-input number');
     sliderRotateY = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
     sliderRotateY.parent('inputsVariables');
     sliderRotateY.class('customInputs');
   
     // rotate z
-    let textRotateZ = p5.createP('Rotate Z');
+    textRotateZz = p5.createP('Rotate Z:');
+    textRotateZ = p5.createP('');
+    textRotateZz.parent('inputsVariables');
     textRotateZ.parent('inputsVariables');
+    textRotateZz.class('text-input');
+    textRotateZ.class('text-input number');
     sliderRotateZ = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
     sliderRotateZ.parent('inputsVariables');
     sliderRotateZ.class('customInputs');
 
     // detail x
-    let textDetailX = p5.createP('Detail X');
+    textDetailXx = p5.createP('Detail X:');
+    textDetailX = p5.createP('');
+    textDetailXx.parent('inputsVariables');
     textDetailX.parent('inputsVariables');
+    textDetailXx.class('text-input');
+    textDetailX.class('text-input number');
     sliderDetailX = p5.createSlider(3, 24, p5.random(3, 24));
     sliderDetailX.parent('inputsVariables');
     sliderDetailX.class('customInputs');
 
     // detail Y
-    let textDetailY = p5.createP('Detail Y');
+    textDetailYy = p5.createP('Detail Y:');
+    textDetailY = p5.createP('');
+    textDetailYy.parent('inputsVariables');
     textDetailY.parent('inputsVariables');
+    textDetailYy.class('text-input');
+    textDetailY.class('text-input number');
     sliderDetailY = p5.createSlider(3, 16, p5.random(3, 16));
     sliderDetailY.parent('inputsVariables');
     sliderDetailY.class('customInputs');
 
+    // button png
     function saveImg() {
       p5.save('TORUS.png');
     }
 
-    // button
     let saveButton = p5.createButton('save png');
     saveButton.parent('btnSave');
     saveButton.mousePressed(saveImg);
+
+
+    // button jpg
+    function saveImgJPG() {
+      p5.save('TORUS.jpg');
+    }
+
+    let saveButtonJPG = p5.createButton('save jpg');
+    saveButtonJPG.parent('btnSave');
+    saveButtonJPG.mousePressed(saveImgJPG);
   };
 
 
@@ -93,6 +151,16 @@ export default class SketchTorus extends Component {
     let rotZ = sliderRotateZ.value();
     let detailX = sliderDetailX.value();
     let detailY = sliderDetailY.value();
+
+    textDetailY.html(sliderDetailY.value());
+    textDetailX.html(sliderDetailX.value());
+    textRotateZ.html(sliderRotateZ.value());
+    textRotateZ.html(sliderRotateZ.value());
+    textRotateY.html(sliderRotateY.value());
+    textRotateX.html(sliderRotateX.value());
+    textRadius.html(sliderRadius.value());
+    textRate.html(sliderRate.value());
+    textTubeRadius.html(sliderTubeRadius.value());
   
     p5.normalMaterial();
     p5.translate(0, 0, 500);

@@ -1,29 +1,10 @@
 import React from "react";
+import {
+  Link
+} from "react-router-dom";
 import SketchBox from '../sketches/sketch-box';
 import '../App.css';
 import box from '../images/box.png';
-import torus1 from '../images/1.png';
-import torus2 from '../images/2.png';
-import torus3 from '../images/3.png';
-import 'swiper/css/swiper.css';
-import Swiper from 'react-id-swiper';
-
-const SwiperHero = {
-  slidesPerView: 1,
-  effect: 'fade',
-  loop: true,
-  hashNavigation: {
-    watchState: true,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-};
 
 function App() {
   return (
@@ -56,21 +37,10 @@ function App() {
           <div id="btnSave" className="container"></div>
           <SketchBox />
         </section>
-        <h2 className="container examples">Examples</h2>
-        <section className="carousel">
-          <Swiper {...SwiperHero}>
-            <div className="swiper-img">
-              <img src={torus1} alt="" />
-            </div>
-            <div className="swiper-img">
-              <img src={torus2} alt="" />
-            </div>
-            <div className="swiper-img">
-              <img src={torus3} alt="" />
-            </div>
-          </Swiper>
-        </section>
       </main>
+      <Link to="/">
+          <h1>⟵</h1>
+      </Link>
       <footer>
         <p>satanic & satanist, inc</p>
       </footer>

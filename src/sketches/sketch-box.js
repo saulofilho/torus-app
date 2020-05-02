@@ -6,6 +6,16 @@ let sliderRotateX;
 let sliderRotateY;
 let sliderRotateZ;
 let sliderSize;
+let textRotateZ;
+let textRotateZz;
+let textRotateY;
+let textRotateYy;
+let textRotateX;
+let textRotateXx;
+let textSize;
+let textSize2;
+let textRate;
+let textRate2;
 
 export default class SketchBox extends Component {
 
@@ -14,48 +24,78 @@ export default class SketchBox extends Component {
     // p5.background(0);
   
     // frame rate
-    let textRate = p5.createP('Frame Rate');
+    textRate2 = p5.createP('Frame Rate:');
+    textRate = p5.createP('');
+    textRate2.parent('inputsVariables');
     textRate.parent('inputsVariables');
+    textRate2.class('text-input');
+    textRate.class('text-input number');
     sliderRate = p5.createSlider(1, 200, p5.random(1, 200), 1);
     sliderRate.parent('inputsVariables');
     sliderRate.class('customInputs');
     
     // rotate x
-    let textRotateX  = p5.createP('Rotate X');
+    textRotateXx = p5.createP('Rotate X:');
+    textRotateX = p5.createP('');
+    textRotateXx.parent('inputsVariables');
     textRotateX.parent('inputsVariables');
+    textRotateXx.class('text-input');
+    textRotateX.class('text-input number');
     sliderRotateX = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
     sliderRotateX.parent('inputsVariables');
     sliderRotateX.class('customInputs');
   
     // rotate y
-    let textRotateY = p5.createP('Rotate Y');
+    textRotateYy = p5.createP('Rotate Y:');
+    textRotateY = p5.createP('');
+    textRotateYy.parent('inputsVariables');
     textRotateY.parent('inputsVariables');
+    textRotateYy.class('text-input');
+    textRotateY.class('text-input number');
     sliderRotateY = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
     sliderRotateY.parent('inputsVariables');
     sliderRotateY.class('customInputs');
   
     // rotate z
-    let textRotateZ = p5.createP('Rotate Z');
+    textRotateZz = p5.createP('Rotate Z:');
+    textRotateZ = p5.createP('');
+    textRotateZz.parent('inputsVariables');
     textRotateZ.parent('inputsVariables');
+    textRotateZz.class('text-input');
+    textRotateZ.class('text-input number');
     sliderRotateZ = p5.createSlider(0.01, 100, p5.random(0.01, 100), 0.001);
     sliderRotateZ.parent('inputsVariables');
     sliderRotateZ.class('customInputs');
 
     // size
-    let textSize = p5.createP('Size');
+    textSize2 = p5.createP('Size:');
+    textSize = p5.createP('');
+    textSize2.parent('inputsVariables');
     textSize.parent('inputsVariables');
+    textSize2.class('text-input');
+    textSize.class('text-input number');
     sliderSize = p5.createSlider(2, 300, p5.random(2, 300), 0.0001);
     sliderSize.parent('inputsVariables');
     sliderSize.class('customInputs');
 
+    // button png
     function saveImg() {
       p5.save('TORUS.png');
     }
 
-    // button
     let saveButton = p5.createButton('save png');
     saveButton.parent('btnSave');
     saveButton.mousePressed(saveImg);
+
+
+    // button jpg
+    function saveImgJPG() {
+      p5.save('TORUS.jpg');
+    }
+
+    let saveButtonJPG = p5.createButton('save jpg');
+    saveButtonJPG.parent('btnSave');
+    saveButtonJPG.mousePressed(saveImgJPG);
   };
 
 
@@ -66,7 +106,13 @@ export default class SketchBox extends Component {
     let rotY = sliderRotateY.value();
     let rotZ = sliderRotateZ.value();
     let size = sliderSize.value();
-    console.log(size)
+    
+    textRotateZ.html(sliderRotateZ.value());
+    textRotateZ.html(sliderRotateZ.value());
+    textRotateY.html(sliderRotateY.value());
+    textRotateX.html(sliderRotateX.value());
+    textSize.html(sliderSize.value());
+    textRate.html(sliderRate.value());
   
     p5.normalMaterial();
     p5.translate(0, 0, 500);

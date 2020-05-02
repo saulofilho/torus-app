@@ -96,25 +96,21 @@ h5 {
 @media (max-width: 900px) {
   h1 {
     font-size: 2rem;
-    padding: 3rem;
+    padding: 2rem 0;
+    text-align: left;
   }
   h5 {
     font-size: 0.8rem;
   }
 }
-
 .canvas-sketch {
   overflow: hidden;
   position: relative;
   top: 0;
   left: 0;
 }
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+.home-text {
+  padding: 2rem 0;
 }
 .about {
   height: 100vh;
@@ -131,7 +127,7 @@ h5 {
   align-items: center;
   text-align: center;
 }
-@media (max-width: 700px) {
+@media (max-width: 990px) {
   .home {
     height: auto;
     display: flex;
@@ -258,6 +254,7 @@ strong {
   color: #fff;
   padding: 10px;
   text-transform: uppercase;
+  margin-right: 10px;
 }
 .canvas-sketch {
   overflow: hidden;
@@ -347,4 +344,12 @@ strong {
   visibility: visible;
   opacity: 1;
   cursor: pointer;
+}
+#inputsVariables .text-input {
+  display: inline-block;
+  padding-right: 10px;
+}
+.number {
+  font-weight: bolder;
+  color: rgb(123, 255, 0);
 }
