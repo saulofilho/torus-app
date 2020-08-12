@@ -33,10 +33,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/saulofilho/manual-customer-success
+$ git clone https://github.com/saulofilho/3d-primitives-experiment
 
 # Go into the repository
-$ cd manual-customer-success
+$ cd 3d-primitives-experiment
 
 # Install dependencies
 $ yarn install
