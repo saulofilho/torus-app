@@ -1,9 +1,9 @@
 * {
-  font-family: 'Raleway', sans-serif;
   margin: 0;
   padding: 0;
   outline: 0;
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 *:focus {
   outline: 0;
@@ -19,6 +19,7 @@
 }
 ::selection {
   background: yellowgreen;
+  color: darkblue;
 }
 html, body {
   color: var(--secondary);
@@ -35,6 +36,7 @@ html, body {
 a {
   color: var(--primary);
   text-decoration: none;
+  font-family: 'Raleway', sans-serif;
 }
 strong {
   font-weight: bolder;
@@ -88,31 +90,58 @@ h1 {
   padding: 3rem;
 }
 h5 {
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 30px;
+  text-indent: 50px;
+  font-size: 1.1rem;
   text-align: left;
+  font-family: 'Antic Slab', serif;
 }
 @media (max-width: 900px) {
   h1 {
     font-size: 2rem;
     padding: 2rem 0;
-    text-align: left;
   }
   h5 {
     font-size: 0.8rem;
   }
 }
-.canvas-sketch {
-  overflow: hidden;
-  position: relative;
-  top: 0;
+button {
+  cursor: pointer;
+}
+.show {
+  position: absolute;
+  top: 20px;
   left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+.btn-toggle {
+  position: relative;
+  padding: 10px 20px;
+  background: rgb(123, 255, 0);
+  color: #000;
+  font-weight: bolder;
+  border: unset;
+  border-radius: 5px 5px 0 0;
+  margin: 0 auto;
+  display: flex;
+}
+.show .input-btn-wrapper {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+}
+.hide {
+  display: none;
 }
 .home-text {
   padding: 2rem 0;
+  width: 100%;
+  height: auto;
 }
 .about {
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-flow: row;
@@ -120,7 +149,8 @@ h5 {
   align-items: center;
 }
 .home {
-  height: 100vh;
+  width: 100%;
+  height: auto;
   display: flex;
   flex-flow: row;
   justify-content: center;

@@ -120,6 +120,25 @@ export default class SketchTorus extends Component {
     sliderDetailY.parent('inputsVariables');
     sliderDetailY.class('customInputs');
 
+    // name of variables for image generates name
+    let frameR = sliderRate.value().toString().substr(0, 2);
+    let radius = sliderRadius.value().toString().substr(0, 2);
+    let tubeRadius = sliderTubeRadius.value().toString().substr(0, 2);
+    let rotX = sliderRotateX.value().toString().substr(0, 2);
+    let rotY = sliderRotateY.value().toString().substr(0, 2);
+    let rotZ = sliderRotateZ.value().toString().substr(0, 2);
+    let detailX = sliderDetailX.value().toString().substr(0, 2);
+    let detailY = sliderDetailY.value().toString().substr(0, 2);
+
+    console.log('tube', frameR)
+    console.log('tube', radius)
+    console.log('tube', tubeRadius)
+    console.log('tube', rotX)
+    console.log('tube', rotY)
+    console.log('tube', rotZ)
+    console.log('tube', detailX)
+    console.log('tube', detailY)
+
     // button png
     function saveImg() {
       p5.save('TORUS.png');
@@ -129,10 +148,9 @@ export default class SketchTorus extends Component {
     saveButton.parent('btnSave');
     saveButton.mousePressed(saveImg);
 
-
     // button jpg
     function saveImgJPG() {
-      p5.save('TORUS.jpg');
+      p5.save(`${frameR + '-' + radius + '-' + tubeRadius + '-' + rotX + '-' + rotY + '-' + rotZ + '-' + detailX + '-' + detailY}.jpg`);
     }
 
     let saveButtonJPG = p5.createButton('save jpg');
